@@ -31,6 +31,11 @@
             key-positions = <10 11>;
             bindings = <&kp TAB>;
         };
+        combo_scroll {
+            timeout-ms = <50>;
+            key-positions = <6 7>; // 6番=U, 7番=I
+            bindings = <&mo 6>;    // 押している間だけ「レイヤー6（後述）」をオンにする
+        };
     };
 
     keymap {
@@ -92,5 +97,31 @@
 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
             >;
         };
+
+        layer_6 {
+            label = "SCROLL";
+            // 全てのキーを &trans (透過) にします。
+            // UとIを押している間、他のキーはデフォルトと同じように打てる状態を維持するためです。
+            bindings = <
+&trans &trans &trans &trans &trans  &trans &trans &trans &trans &trans
+&trans &trans &trans &trans &trans  &trans &trans &trans &trans &trans
+&trans &trans &trans &trans &trans  &trans &trans &trans &trans &trans
+&trans &trans &trans &trans &trans  &trans &trans &trans &trans &trans
+            >;
+        };
     };
 };
+/ {
+    behaviors {
+        hw_scroller: hw_scroller {
+            compatible = "zmk,input-behavior-listener";
+            device = <&tb_right>;        // ← ここを &tb_right に設定！
+            layers = <6>;                // さきほど作ったLayer 6を指定
+            evt-type = <INPUT_EV_REL>;
+            x-input-code = <INPUT_REL_HWHEEL>; // 横スクロール
+            y-input-code = <INPUT_REL_WHEEL>;  // 縦スクロール
+            y-invert; // 上下反転させたい場合はこの行を残す
+        };
+    };
+};
+
