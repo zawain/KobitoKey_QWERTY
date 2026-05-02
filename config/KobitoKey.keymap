@@ -65,6 +65,16 @@
             >;
         };
 
+        layer3 {
+            label = "MOUSE";
+            bindings = <
+&trans     &trans  &trans    &trans    &trans  &mkp MB1  &mkp MB2  &mkp MB3  &trans  &trans
+&trans     &trans  &trans    &trans    &trans  &trans    &trans    &trans    &trans  &trans
+&trans     &trans  &trans    &trans    &trans  &trans    &trans    &trans    &trans  &trans
+&kp LSHFT  &trans  &kp LCMD  &kp LALT  &to 0   &trans    &trans    &trans    &to 0   &kp RALT
+            >;
+        };
+
         layer_4 {
             bindings = <
 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
@@ -80,16 +90,6 @@
 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-            >;
-        };
-
-        layer3 {
-            label = "MOUSE";
-            bindings = <
-&trans     &trans  &trans    &trans    &trans  &mkp MB1  &mkp MB2  &mkp MB3  &trans  &trans
-&trans     &trans  &trans    &trans    &trans  &trans    &trans    &trans    &trans  &trans
-&trans     &trans  &trans    &trans    &trans  &trans    &trans    &trans    &trans  &trans
-&kp LSHFT  &trans  &kp LCMD  &kp LALT  &to 0   &trans    &trans    &trans    &to 0   &kp RALT
             >;
         };
     };
