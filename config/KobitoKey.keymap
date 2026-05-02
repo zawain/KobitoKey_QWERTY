@@ -116,12 +116,14 @@
     behaviors {
         hw_scroller: hw_scroller {
             compatible = "zmk,input-behavior-listener";
-            layers = <6>;                // さきほど作ったLayer 6を指定
+            device = <&tb_right_split>;  // ← ここに正解の名前をセット！
+            layers = <6>;                // UとIの同時押しレイヤー
             evt-type = <INPUT_EV_REL>;
             x-input-code = <INPUT_REL_HWHEEL>; // 横スクロール
             y-input-code = <INPUT_REL_WHEEL>;  // 縦スクロール
-            y-invert; // 上下反転させたい場合はこの行を残す
+            y-invert; // スクロール方向を反転させる（お好みで外してください）
         };
     };
 };
+
 
