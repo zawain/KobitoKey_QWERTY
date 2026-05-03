@@ -68,7 +68,7 @@
 
     input-processors =
             <&sensor_rotation_left>,
-            <&zip_x_scaler 1 15>,
+            <&zip_x_scaler 1 30>,
             <&zip_y_scaler 1 15>,
             <&zip_xy_to_scroll_mapper>,
             <&zip_scroll_transform INPUT_TRANSFORM_Y_INVERT>,
@@ -97,7 +97,7 @@
             <&sensor_rotation_right>,
             
             /* ① 感度（滑らかさ）の調整 */
-            <&zip_x_scaler 1 45>,  /* 横スクロールの感度（左手は 0 1 で無効化されていました） */
+            <&zip_x_scaler 1 100>,  /* 横スクロールの感度（左手は 0 1 で無効化されていました） */
             <&zip_y_scaler 1 45>,  /* 縦スクロールの感度（左手と同じ 1/15 の設定） */
             
             /* ② スクロールへの変換 */
