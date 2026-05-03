@@ -88,8 +88,18 @@
 
     input-processors =
         <&sensor_rotation_right>,
-        <&zip_temp_layer 3 5000>; /* オートマウスレイヤーの指定とトラボ操作及びマウスボタン押下後に滞留する時間 */
+        <&zip_temp_layer 3 5000>; /* オートマウスレイヤーの指定とトラボ操作及びマウスボタン押し下後に滞留する時間 */
+
+    // ↓↓↓ ここから追加 ↓↓↓
+    scroller {
+        layers = <6>; // UとIの同時押しレイヤー（Layer 6）が有効な時だけ発動
+        input-processors =
+            <&sensor_rotation_right>,   // スクロール時もトラックボールの傾き補正を維持
+            <&zip_xy_to_scroll_mapper>; // マウス移動をスクロールホイールの動きに変換
+    };
+    // ↑↑↑ ここまで追加 ↑↑↑
 };
+
 
 &zip_temp_layer {
     excluded-positions = <
