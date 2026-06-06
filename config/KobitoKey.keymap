@@ -37,6 +37,11 @@
             key-positions = <6 7>; // 6番=U, 7番=I
             bindings = <&mo 6>;    // 押している間だけ「レイヤー6（後述）」をオンにする
         };
+        combo_gesture {
+            timeout-ms = <50>;
+            key-positions = <16 17>; // 6番=U, 7番=I
+            bindings = <&mo 13>;    // 押している間だけ「レイヤー13（後述）」をオンにする
+        };
     };
 
     keymap {
@@ -107,6 +112,17 @@
 &trans &trans &trans &trans &trans  &trans &trans &trans &trans &trans
 &trans &trans &trans &trans &trans  &trans &trans &trans &trans &trans
 &trans &trans &trans &trans &trans  &trans &trans &trans &trans &trans
+&trans &trans &trans &trans &trans  &trans &trans &trans &trans &trans
+            >;
+        };
+        layer_13 {
+            bindings = <
+            // KobitoKeyのキー配列に合わせて &trans を並べ、
+            // positionsで指定した場所だけ、発動したいキーに書き換えます。
+            // （例：左にMacの戻る、右に進む を割り当てる場合）
+&trans &trans &trans &trans &trans  &trans &trans &kp LG(TAB) &trans &trans
+&trans &trans &trans &trans &trans  &trans &kp LC(LG(LEFT)) &trans &kp LC(LG(RIGHT)) &trans
+&trans &trans &trans &trans &trans  &trans &trans &kp LG(D) &trans &trans
 &trans &trans &trans &trans &trans  &trans &trans &trans &trans &trans
             >;
         };
