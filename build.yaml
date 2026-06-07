@@ -1,7 +1,7 @@
 include:
  - board: xiao_ble
    shield: KobitoKey_left rgbled_adapter
-   snippet: studio-rpc-usb-uart
+   snippet: studio-rpc-usb-uart  # ← これを復活させる
    
  - board: xiao_ble
    shield: KobitoKey_right rgbled_adapter
