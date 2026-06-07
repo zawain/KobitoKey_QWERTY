@@ -29,10 +29,10 @@
 
     tb_right: trackball@0 {
         status = "okay";
-        compatible = "pixart,pmw3610-alt"; // ← ここに「-alt」を追加！
+        compatible = "pixart,pmw3610-alt";
         reg = <0>;
         spi-max-frequency = <2000000>;
-        motion-gpios = <&gpio0 2 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
+        irq-gpios = <&gpio0 2 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>; // ← 「irq-gpios」に戻す！
         cpi = <600>;
         evt-type = <INPUT_EV_REL>;
         x-input-code = <INPUT_REL_X>;
