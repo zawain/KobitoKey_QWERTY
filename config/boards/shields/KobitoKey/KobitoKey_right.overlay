@@ -2,6 +2,16 @@
 #include "kobitokey.dtsi"
 #include <input/processors.dtsi>
 
+// ▼▼ ここに枠ごと追加します ▼▼
+/ {
+    aliases {
+        led-red = &led0;
+        led-green = &led1;
+        led-blue = &led2;
+    };
+};
+// ▲▲ ここまで ▲▲
+
 /* 列オフセット */
 &default_transform { col-offset = <5>; };
 
@@ -37,7 +47,6 @@
         evt-type = <INPUT_EV_REL>;
         x-input-code = <INPUT_REL_X>;
         y-input-code = <INPUT_REL_Y>;
-        // ← ここにあった zephyr,axis-x と zephyr,axis-y の2行を削除！
     };
 };
 
