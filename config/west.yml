@@ -6,40 +6,27 @@ manifest:
       url-base: https://github.com/badjeff
     - name: hsgw
       url-base: https://github.com/hsgw
-    - name: caksoylar
-      url-base: https://github.com/caksoylar  
-    # ▼追加：Conductorの特製エンジンと機能のダウンロード元
     - name: pite1222
       url-base: https://github.com/pite1222
 
   projects:
-    # ▼変更：ZMK本体をConductorと同じジェスチャー対応版に差し替え
     - name: zmk
       remote: pite1222
       revision: release/conductor-0.5.4
       import: app/west.yml
 
-    # ▼追加：新しいエンジンが要求するメッセージング機能（エラー防止）
     - name: zmk-studio-messages
       remote: pite1222
       revision: release/conductor-0.5.1
       path: modules/msgs/zmk-studio-messages
 
-    # ▼変更：新しいZMKエンジンに合わせて最新(main)にアップデート
     - name: zmk-pmw3610-driver
       remote: badjeff
       revision: main
     
-    # 既存のまま
     - name: zmk-feature-sensor_rotation
       remote: hsgw
-      revision: main
-
-    # ▼変更：新しいZMKエンジンでビルドエラーが出ないよう最新(main)にアップデート
-    - name: zmk-rgbled-widget
-      remote: caksoylar
       revision: main
       
   self:
     path: config
-
